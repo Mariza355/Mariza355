@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evangelista Marcos Luiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Evangelista Marcos Luiz</h1>
+    <p>Mensagens bíblicas para fortalecer sua fé</p>
+  </header>
+
+  <main>
+    <section id="mensagens">
+      <!-- Mensagens serão inseridas aqui pelo JavaScript -->
+    </section>
+    
+    <form id="formMensagem">
+      <h2>Adicionar nova mensagem bíblica</h2>
+      <input type="text" id="titulo" placeholder="Título da Mensagem" required />
+      <textarea id="conteudo" placeholder="Digite a mensagem..." required></textarea>
+      <button type="submit">Adicionar Mensagem</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Evangelista Marcos Luiz. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
