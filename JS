@@ -1,0 +1,42 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const mensagens = [
+    {
+      titulo: "Confiança em Deus",
+      conteudo: "Entrega o teu caminho ao Senhor; confia nele, e ele tudo fará. - Salmo 37:5"
+    },
+    {
+      titulo: "Deus é Amor",
+      conteudo: "Aquele que não ama não conhece a Deus, porque Deus é amor. - 1 João 4:8"
+    }
+  ];
+
+  const mensagensContainer = document.getElementById("mensagens");
+  const form = document.getElementById("formMensagem");
+  const tituloInput = document.getElementById("titulo");
+  const conteudoInput = document.getElementById("conteudo");
+
+  function renderMensagens() {
+    mensagensContainer.innerHTML = "";
+    mensagens.forEach((msg) => {
+      const div = document.createElement("div");
+      div.classList.add("mensagem");
+      div.innerHTML = `<h3>${msg.titulo}</h3><p>${msg.conteudo}</p>`;
+      mensagensContainer.appendChild(div);
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const novaMensagem = {
+      titulo: tituloInput.value.trim(),
+      conteudo: conteudoInput.value.trim()
+    };
+    if (novaMensagem.titulo && novaMensagem.conteudo) {
+      mensagens.unshift(novaMensagem); // Adiciona no início da lista
+      renderMensagens();
+      form.reset();
+    }
+  });
+
+  renderMensagens();
+});
