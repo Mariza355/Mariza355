@@ -2,3 +2,98 @@ biblia-site/
 ├── index.html
 ├── style.css
 └── script.js
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mensagens Bíblicas - Evangelista Marcos Luiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Mensagens Bíblicas</h1>
+    <p>Evangelista Marcos Luiz</p>
+  </header>
+
+  <main>
+    <div class="mensagem-box">
+      <p id="mensagem">Clique abaixo para receber uma mensagem bíblica 🙏</p>
+    </div>
+    <button onclick="mostrarMensagem()">Nova Mensagem</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Evangelista Marcos Luiz</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #333;
+}
+
+header {
+  background-color: #4b0082;
+  color: white;
+  padding: 20px 0;
+}
+
+main {
+  margin: 40px 20px;
+}
+
+.mensagem-box {
+  background-color: #ffffffcc;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  font-size: 1.2em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4b0082;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #6a0dad;
+}
+
+footer {
+  background-color: #4b0082;
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+const mensagens = [
+  "O Senhor é o meu pastor e nada me faltará. (Salmos 23:1)",
+  "Tudo posso naquele que me fortalece. (Filipenses 4:13)",
+  "Entrega o teu caminho ao Senhor; confia nele, e ele o fará. (Salmos 37:5)",
+  "Porque sou eu que conheço os planos que tenho para vocês, diz o Senhor. (Jeremias 29:11)",
+  "Buscai ao Senhor enquanto se pode achar, invocai-o enquanto está perto. (Isaías 55:6)",
+  "O Senhor é bom, um refúgio em tempos de angústia. (Naum 1:7)",
+  "Alegrai-vos na esperança, sede pacientes na tribulação, perseverai na oração. (Romanos 12:12)"
+];
+
+function mostrarMensagem() {
+  const aleatoria = Math.floor(Math.random() * mensagens.length);
+  document.getElementById("mensagem").textContent = mensagens[aleatoria];
+}
