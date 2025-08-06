@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class TestaPerformance {
+
+    public static void main(String[] args) {
+        int[] tamanhos = {50000, 100000, 150000, 200000};
+
+        for (int tamanho : tamanhos) {
+            System.out.println("----- Teste com " + tamanho + " elementos -----");
+
+            // Teste com ArrayList
+            Collection<Integer> arrayList = new ArrayList<>();
+            long tempoArrayList = testarPerformance(arrayList, tamanho);
+            System.out.println("ArrayList tempo: " + tempoArrayList + " ms");
+
+            // Teste com HashSet
+            Collection<Integer> hashSet = new HashSet<>();
+            long tempoHashSet = testarPerformance(hashSet, tamanho);
+            System.out.println("HashSet tempo: " + tempoHashSet + " ms");
+
+            String melhor = tempoArrayList < tempoHashSet ? "ArrayList" : "HashSet";
+            System.out.println("Melhor desempenho: " + melhor + "\n");
+        }
+    }
+
+    public static long testarPerformance(Collection<Integer> colecao, int total) {
+        long inicio = System.currentTimeMillis();
+
+        // Adiciona os elementos
+        for (int i = 0; i < total; i++) {
+            colecao.add(i);
+        }
+
+        // Verifica a existência dos elementos
+        for (int i = 0; i < total; i++) {
+            colecao.contains(i);
+        }
+
+        long fim = System.currentTimeMillis();
+        return fim - inicio;
+    }
+}
